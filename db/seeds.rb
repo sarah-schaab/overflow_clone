@@ -1,27 +1,33 @@
-require 'faker'
 
-User.delete_all
-Channel.delete_all
-Subscription.delete_all
 
-users = 100.times.map do
-  User.create!( :first_name => Faker::Name.first_name,
-                :last_name  => Faker::Name.last_name,
-                :email      => Faker::Internet.email,
-                :password   => 'password' )
+values = [ -1, 1]
+
+users = []
+50.times do
+  users << User.create(username: Faker::GameOfThrones.character, email: Faker::Internet.email, password: "password")
 end
 
-channels = ["Telemundo", "Unimas ", "Azteca 13", "Mexiquense",
- "ESPN", "Fox Sports", "NBC Sports", "Big Ten Network", "Nickelodeon"].map do |name|
-  Channel.create!(:name            => name,
-                  :callsign        => name[0..2].upcase,
-                  :price_per_month => Faker::Commerce.price)
+questions = []
+answers = []
+
+6.times do
+  question = Question.create(title: Faker::Hipster.words, body: Faker::Hipster.paragraph, user: users.sample)
+  4.times do
+    question.votes.create(user: users.sample, value: values.sample)
+    4.times do
+      question.comments.create(statement: Faker::Hipster.sentence, user: users.sample )
+      questions << question
+    end
+  end
 end
 
-users.each do |user|
-  user_channels = channels.sample(rand(2..4))
-  user_channels.each do |channel|
-    Subscription.create!(user: user,
-                         channel: channel)
+6.times do
+  answer = Answer.create(body: Faker::Hipster.words, user: users.sample, question: questions.sample)
+  4.times do
+    answer.votes.create(user: users.sample, value: values.sample)
+    (4).times do
+      answer.comments.create(statement: Faker::Hipster.sentence, user: users.sample)
+      answers << answer
+    end
   end
 end
