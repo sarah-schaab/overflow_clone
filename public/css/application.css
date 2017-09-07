@@ -1,8 +1,10 @@
 .container {
   margin: 20px auto;
   width: 800px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 20px;
+  border: 1px solid black;
+  align-items: center;
+  text-align: center;
 }
 
 .container h1 {
@@ -72,4 +74,15 @@ form.quirks {
   text-align: right;
   margin-right: 20px;
   width: 200px;
+}
+
+.questions {
+  border: 1px dotted black;
+  padding: 20px;
+}
+
+.question {
+  border: 1px solid black;
+  padding: 20px;
+  list-style: none;
 }

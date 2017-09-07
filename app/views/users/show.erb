@@ -1,0 +1,8 @@
+<div class="container">
+  <h1> Welcome Home, <%= @user.username %></h1>
+  <% @user.questions.each do |question| %>
+  <%= question.title %>
+  <% end %>
+
+  
+</div>

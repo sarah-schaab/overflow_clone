@@ -11,7 +11,7 @@ questions = []
 answers = []
 
 6.times do
-  question = Question.create(title: Faker::Hipster.words, body: Faker::Hipster.paragraph, user: users.sample)
+  question = Question.create(title: Faker::Hipster.sentence, body: Faker::Hipster.paragraph, user: users.sample)
   4.times do
     question.votes.create(user: users.sample, value: values.sample)
     4.times do
@@ -22,7 +22,7 @@ answers = []
 end
 
 6.times do
-  answer = Answer.create(body: Faker::Hipster.words, user: users.sample, question: questions.sample)
+  answer = Answer.create(body: Faker::Hipster.sentence, user: users.sample, question: questions.sample)
   4.times do
     answer.votes.create(user: users.sample, value: values.sample)
     (4).times do
