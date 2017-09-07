@@ -10,6 +10,17 @@
   <title></title>
 </head>
 <body>
+  <button><a href="/">Home<a></button>
+  <% if logged_in? %>
+    <button><a href="/users/<%=current_user.id%>">User Profile<a></button>
+      <form class="" action="/logout" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout" />
+      </form>
+  <%  else %>
+    <button><a href="/users/new">Sign up</a></button>
+    <button><a href="/login">Login</a></button>
+  <% end %>
   <%= yield %>
 </body>
 </html>
