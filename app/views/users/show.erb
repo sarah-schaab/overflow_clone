@@ -1,8 +1,18 @@
 <div class="container">
   <h1> Welcome Home, <%= @user.username %></h1>
+  <h3> Questions you've asked:</h3>
+
   <% @user.questions.each do |question| %>
-  <%= question.title %>
+  <br>
+  <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %> </a></li>
   <% end %>
 
-  
+  <div class="question_form">
+    <%= erb :'/_new_question_form' %>
+  </div>
+  <% if login? %>
+    <a href="/questions/<%=@question.id%>/edit"> Edit Question </a>
+    <% else %>
+    <a href="/">home</a>
+    <% end %>
 </div>

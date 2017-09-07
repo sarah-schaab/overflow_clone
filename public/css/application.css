@@ -1,7 +1,8 @@
 .container {
   margin: 20px auto;
   width: 800px;
-  padding: 20px;
+  padding: 30px;
+  padding-bottom: 50px;
   border: 1px solid black;
   align-items: center;
   text-align: center;
@@ -83,6 +84,10 @@ form.quirks {
 
 .question {
   border: 1px solid black;
-  padding: 20px;
+  padding: 30px;
   list-style: none;
 }
+ .questionbody p {
+   font-size: 16px;
+ }
+ 

@@ -20,5 +20,5 @@ get '/users/:id' do
     erb :'users/show'
   else
     redirect '/'
-  end  
+  end
 end

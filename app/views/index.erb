@@ -3,7 +3,7 @@
   <ul class="questions">
     <% @questions.each do |question|  %>
     <li class="question">
-      <a href="/question/<%= question.id %>"> <%= question.title %> </a>
+      <a href="/questions/<%= question.id %>"> <%= question.title %> </a>
       <br>
       <br>
       <%= question.body %>
