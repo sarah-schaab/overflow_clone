@@ -86,8 +86,22 @@ form.quirks {
   border: 1px solid black;
   padding: 30px;
   list-style: none;
+  font-size: 20px;
 }
  .questionbody p {
    font-size: 16px;
  }
- 
+.answer {
+  border: 1px solid gray;
+  padding: 20px;
+  font-size: 18px;
+}
+.answer-list, .comment-list, .question-list{
+  list-style: none;
+
+}
+.comment{
+  border: 1px dotted lightgray;
+  padding: 10px;
+  font-size: 12px;
+}

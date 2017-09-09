@@ -22,5 +22,29 @@ end
 
 get '/questions/:id/edit' do
   @question = Question.find(id: params[:id])
-  erb :'/questions/edit'
+  if current_user == @question.user
+    erb :'/questions/edit'
+  else
+    404
+  end
+end
+
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.assign_attributes(params[:question])
+  if @question.save
+    redirect "/questions/#{@question.id}"
+  else
+    erb :'/questions/edit'
+  end
+end
+
+delete '/questions/:id' do
+  @question = Question.find(params[:id])
+  if current_user == @question.user
+    @question.destroy
+    redirect "/users/#{current_user.id}"
+  else
+    status 404
+  end
 end

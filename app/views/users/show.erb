@@ -4,15 +4,12 @@
 
   <% @user.questions.each do |question| %>
   <br>
-  <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %> </a></li>
-  <% end %>
-
+  <ul>
+    <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %> </a></li>
+      
+    <% end %>
+  </ul>
   <div class="question_form">
     <%= erb :'/_new_question_form' %>
   </div>
-  <% if login? %>
-    <a href="/questions/<%=@question.id%>/edit"> Edit Question </a>
-    <% else %>
-    <a href="/">home</a>
-    <% end %>
 </div>

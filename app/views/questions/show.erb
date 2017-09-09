@@ -4,6 +4,26 @@
    <p class="body"><%= @question.body %>
   <p class="author"><%= @question.user.username %> </p>
 </div>
-
-
+<div class="delete-edit">
+<% if current_user.id == @question.user.id %>
+  <%= erb :'/questions/_delete_question_form' %>
+  <button class='edit-button'> Edit Question </button>
+  <div class="edit-form">
+     <%= erb :'/questions/edit'%>
+   </div>
+  <% end  %>
+</div>
+<div class="answers">
+<% @question.answers.each do |answer| %>
+<ul class="answer-list">
+  <li class="answer"><%= answer.body %> -
+    <%= answer.user.username %></li>
+    <ul class="comment-list">
+    <% answer.comments.each do |comment| %>
+      <li class="comment"><%= comment.statement %></li>
+    <% end %>
+    </ul>
+</ul>
+<% end %>
+</div>
 </div>

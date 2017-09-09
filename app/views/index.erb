@@ -1,17 +1,19 @@
 <div class="container">
   <h1>Welcome to Overflow Clone!</h1>
-  <ul class="questions">
+  <ul class="question-list">
     <% @questions.each do |question|  %>
     <li class="question">
       <a href="/questions/<%= question.id %>"> <%= question.title %> </a>
       <br>
-      <br>
-      <%= question.body %>
+      <%= question.body %></li>
+      <ul class ="answer-list">
+        <%question.answers.each do |answer|%>
+          <li class="answer"><%= answer.body%></li>
+          <%end %>
       <% end %>
-  <form action="/">
-      <input type="submit" value="Go to Google" />
-  </form>
-
-
-</ul>
+    </ul>
+  </ul>
+<a href="/questions/new">
+    <input type="submit" value="Ask A New Question" />
+</a>
 </div>
