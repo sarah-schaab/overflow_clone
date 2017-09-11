@@ -15,5 +15,5 @@ end
 
 delete '/logout' do
   session.clear
-  redirect '/channels'
+  redirect '/'
 end

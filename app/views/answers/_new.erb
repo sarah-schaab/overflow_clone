@@ -1,0 +1,9 @@
+<div class='answer-new'>
+  <%= erb :'_errors' %>
+  <form class="delete-answer" action="/questions/<%= @question.id %>/answers" method="post">
+    <label for="body">Answer:</label>
+    <input type="text" name="answer[body]" />
+
+    <input type="submit" value="Answer" />
+  </form>
+</div>

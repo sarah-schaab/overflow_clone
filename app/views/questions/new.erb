@@ -1,0 +1,11 @@
+
+  <div class='answer-new'>
+  <h1> Sign Up</h1>
+    <%= erb :'_errors' %>
+    <form action="/questions/<%= @question.id %>/answers" method="post">
+      <label for="body">Answer:</label>
+      <input type="text" name="answer[body]" />
+
+      <input type="submit" value="Answer Question" />
+    </form>
+  </div>

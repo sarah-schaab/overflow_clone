@@ -1,8 +1,11 @@
 .container {
   margin: 20px auto;
   width: 800px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 30px;
+  padding-bottom: 50px;
+  border: 1px solid black;
+  align-items: center;
+  text-align: center;
 }
 
 .container h1 {
@@ -72,4 +75,33 @@ form.quirks {
   text-align: right;
   margin-right: 20px;
   width: 200px;
+}
+
+.questions {
+  border: 1px dotted black;
+  padding: 20px;
+}
+
+.question {
+  border: 1px solid black;
+  padding: 30px;
+  list-style: none;
+  font-size: 20px;
+}
+ .questionbody p {
+   font-size: 16px;
+ }
+.answer {
+  border: 1px solid gray;
+  padding: 20px;
+  font-size: 18px;
+}
+.answer-list, .comment-list, .question-list{
+  list-style: none;
+
+}
+.comment{
+  border: 1px dotted lightgray;
+  padding: 10px;
+  font-size: 12px;
 }

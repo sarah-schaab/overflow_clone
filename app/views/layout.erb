@@ -10,9 +10,11 @@
   <title></title>
 </head>
 <body>
+  <header> <h3 > Overflow Clone</h3> </header>
   <button><a href="/">Home<a></button>
   <% if logged_in? %>
     <button><a href="/users/<%=current_user.id%>">User Profile<a></button>
+      <br>
       <form class="" action="/logout" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout" />
@@ -21,6 +23,7 @@
     <button><a href="/users/new">Sign up</a></button>
     <button><a href="/login">Login</a></button>
   <% end %>
+
   <%= yield %>
 </body>
 </html>

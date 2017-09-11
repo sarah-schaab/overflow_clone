@@ -1,23 +1,15 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
-
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <h1>Welcome to Overflow Clone!</h1>
+  <ul class="question-list">
+    <% @questions.each do |question|  %>
+    <li class="question">
+      <a href="/questions/<%= question.id %>"> <%= question.title %> </a>
+      <br>
+      <%= question.body %></li>
+      <% end %>
+    </ul>
+  </ul>
+<a href="/questions/new">
+    <input type="submit" value="Ask A New Question" />
+</a>
 </div>

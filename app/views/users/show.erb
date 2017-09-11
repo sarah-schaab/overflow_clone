@@ -1,0 +1,17 @@
+<div class="container">
+  <h1> Welcome Home, <%= @user.username %></h1>
+  <h3> Questions you've asked:</h3>
+
+  <% @user.questions.each do |question| %>
+  <br>
+  <ul>
+    <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %> </a></li>
+
+    <% end %>
+  </ul>
+
+  <button class='question-button'> Ask New Question </button>
+  <div class="question-form">
+    <%= erb :'/_new_question_form' %>
+  </div>
+</div>

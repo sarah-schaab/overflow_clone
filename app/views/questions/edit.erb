@@ -1,0 +1,10 @@
+<form method="post" action="/questions/<%= @question.id %>">
+    <input type="hidden" name="_method" value="put">
+    <label for="title">Title:</label>
+    <input id="question_title_input" name="question[title]" type="text" value="<%= @question.try(:title) %>">
+
+    <label for="body">Question:</label>
+    <input id="question_body_input" name="question[body]" type="text" value="<%= @question.try(:body) %>">
+
+    <input type="submit" value="Update Entry" class="button">
+  </form>

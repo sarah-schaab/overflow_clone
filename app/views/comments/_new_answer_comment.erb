@@ -1,0 +1,9 @@
+<div class='comment-new'>
+  <%= erb :'_errors' %>
+  <form class="new-comment" action="/answers/<%= answer.id %>/comments" method="post">
+    <label for="statement">Comment:</label>
+    <input type="text" name="comment[statement]" />
+
+    <input type="submit" value="Comment" />
+  </form>
+</div>
