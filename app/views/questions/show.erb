@@ -1,29 +1,54 @@
 <div class="container">
   <h3> <%= @question.title %> </h3>
-<div class="question">
-   <p class="body"><%= @question.body %>
-  <p class="author"><%= @question.user.username %> </p>
-</div>
-<div class="delete-edit">
-<% if current_user.id == @question.user.id %>
-  <%= erb :'/questions/_delete_question_form' %>
-  <button class='edit-button'> Edit Question </button>
-  <div class="edit-form">
-     <%= erb :'/questions/edit'%>
-   </div>
-  <% end  %>
-</div>
-<div class="answers">
-<% @question.answers.each do |answer| %>
-<ul class="answer-list">
-  <li class="answer"><%= answer.body %> -
-    <%= answer.user.username %></li>
+  <div class="question">
+    <p class="body"><%= @question.body %>
+    <p class="author"><%= @question.user.username %> </p>
     <ul class="comment-list">
-    <% answer.comments.each do |comment| %>
-      <li class="comment"><%= comment.statement %></li>
-    <% end %>
+        <% @question.comments.each do |comment| %>
+        <li class="comment"><%= comment.statement %></li>
+        <% end %>
     </ul>
-</ul>
-<% end %>
-</div>
+
+      <button class='comment-button'> Comment </button>
+      <div class="comment-form">
+        <%= erb :'comments/_new_comment' %>
+
+    </div>
+
+  </div>
+  <div class="delete-edit">
+    <% if current_user.id == @question.user.id %>
+    <%= erb :'/questions/_delete_question_form' %>
+    <button class='edit-button'> Edit Question </button>
+    <div class="edit-form">
+      <%= erb :'/questions/edit'%>
+    </div>
+    <% end  %>
+  </div>
+  <div class="answers">
+    <% @question.answers.each do |answer| %>
+    <ul class="answer-list">
+      <li class="answer"><%= answer.body %> -
+      <%= answer.user.username %>
+      
+
+      <% if current_user %>
+        <%= erb :'answers/_delete_answer' %>
+        <% end %>
+      </li>
+      <ul class="comment-list">
+          <% answer.comments.each do |comment| %>
+          <li class="comment"><%= comment.statement %></li>
+          <% end %>
+      </ul>
+    </ul>
+      <% end %>
+
+  </div>
+  <button class='answer-button'> Answer Question </button>
+  <div class="answer-form">
+    <%= erb :'answers/_new' %>
+  </div>
+
+
 </div>

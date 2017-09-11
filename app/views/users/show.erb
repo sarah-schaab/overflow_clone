@@ -6,10 +6,12 @@
   <br>
   <ul>
     <li class="question"><a href="/questions/<%= question.id %>"><%= question.title %> </a></li>
-      
+
     <% end %>
   </ul>
-  <div class="question_form">
+
+  <button class='question-button'> Ask New Question </button>
+  <div class="question-form">
     <%= erb :'/_new_question_form' %>
   </div>
 </div>

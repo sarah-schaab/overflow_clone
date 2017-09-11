@@ -6,10 +6,6 @@
       <a href="/questions/<%= question.id %>"> <%= question.title %> </a>
       <br>
       <%= question.body %></li>
-      <ul class ="answer-list">
-        <%question.answers.each do |answer|%>
-          <li class="answer"><%= answer.body%></li>
-          <%end %>
       <% end %>
     </ul>
   </ul>

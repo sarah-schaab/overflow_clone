@@ -1,17 +1,11 @@
-<div class="container">
+
+  <div class='answer-new'>
   <h1> Sign Up</h1>
     <%= erb :'_errors' %>
-    <form action="/questions" method="post">
-      <label for="title">Title:</label>
-      <input type="text" name="question[title]" />
+    <form action="/questions/<%= @question.id %>/answers" method="post">
+      <label for="body">Answer:</label>
+      <input type="text" name="answer[body]" />
 
-      <label for="body">Ask Your Question:</label>
-      <input type="text" name="question[body]" />
-
-      <label for="user">Author:</label>
-      <input type="hidden" name="question[user]" va />
-
-      <input type="submit" value="Create Account" />
+      <input type="submit" value="Answer Question" />
     </form>
-
-</div>
+  </div>
